@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>UNIKALA</title>
+  <link rel="stylesheet" href="style.css">
+  <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
+</head>
+<body>
+  <header>
+    <img src="ICON_UNIKALA.png" alt="logo">
+  </header>
+
+  <section class="slider">
+    <div class="slider-container">
+      <img src="Project1-THUMB.png" alt="Image 1">
+      <img src="Project2-THUMB.png" alt="Image 2">
+      <img src="Project3-THUMB.png" alt="Image 3">
+      <img src="Project4-THUMB.png" alt="Image 4">
+      <img src="Project6-THUMB.png" alt="Image 5">
+      <img src="Project2-THUMB.png" alt="Image 6">
+      <img src="Project4-THUMB.png" alt="Image 7">
+    </div>
+  </section>
+
+  <script>
+    const slider = document.querySelector('.slider');
+    const sliderContainer = slider.querySelector('.slider-container');
+    const images = sliderContainer.querySelectorAll('img');
+    const imageCount = images.length;
+    let currentIndex = 0;
+    let scrollInterval;
+    let timer;
+    
+    function startAutoScroll() {
+      clearInterval(scrollInterval);
+      scrollInterval = setInterval(() => {
+        currentIndex++;
+        if (currentIndex >= imageCount) {
+          currentIndex = 0;
+        }
+        sliderContainer.scrollLeft = currentIndex * images[0].offsetWidth;
+      }, 4000);
+    }
+    
+    startAutoScroll();
+    
+    sliderContainer.addEventListener('touchstart', stopAutoScroll);
+    sliderContainer.addEventListener('mousedown', stopAutoScroll);
+    
+    function stopAutoScroll() {
+      clearInterval(scrollInterval);
+      clearTimeout(timer);
+      timer = setTimeout(startAutoScroll, 5000);
+    }
+  
+    sliderContainer.addEventListener('scroll', () => {
+      const scrollLeft = sliderContainer.scrollLeft;
+      const containerWidth = sliderContainer.offsetWidth;
+      const totalWidth = sliderContainer.scrollWidth;
+      if (scrollLeft + containerWidth >= totalWidth) {
+        sliderContainer.scrollLeft = 0;
+        currentIndex = 0;
+      }
+    });
+  </script>
+  
+  
+  
+  <section class="about">
+    <h2>About</h2>
+    <p>UNIKALA studio is a multidisciplinary architecture and interior design firm based in Pune, India.<br><br> We make an effort to design stunning environments that are both practical and aesthetically pleasant while also being conscious of our influence on the environment.<br><br> We understand that designing a space is an highly personal process, so we make sure that you feel comfortable throughout the entire designing journey.</p>
+  </section>
+
+  <section class="services">
+    <h2>Services</h2><br>
+    <div class="service-container">
+      <div class="service">
+        <img src="Com-Tall.png" alt="Commercial & Residential Interior">
+        <h3 style="font-size: 15px;">Commercial & Residential Interior</h3>
+      </div>
+      <div class="service">
+        <img src="Arc-Tall.png" alt="Architectural">
+        <h3 style="font-size: 15px;">Architectural</h3>
+      </div>
+      <div class="service">
+        <img src="Land-Tall.png" alt="Landscape">
+        <h3 style="font-size: 15px;">Landscape</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2><br>
+    <div class="project-container">
+      <a href="project1.html">
+        <img src="Project1-THUMB.png" alt="Project 1">
+        <span>MR. SUYASH RITHE</span><h6>3BHK FLAT INTERIOR 
+          L AXIS, SPIN ROAD
+          </h6>
+      </a>
+      <a href="project1.html">
+        <img src="Project2-THUMB.png" alt="Project 2">
+        <span>MR. PRAVIN KATTA</span><h6>3500 SQFT BUNGALOW PROJECT 
+        </h6>
+      </a>
+      <a href="project1.html">
+        <img src="Project3-THUMB.png" alt="Project 3">
+        <span>MR. PRAVIN JADHAO</span><h6>2BHK FLAT INTERIOR </h6>
+      </a>
+      <a href="project1.html">
+        <img src="Project4-THUMB.png" alt="Project 4">
+        <span>MR. PRADEEP</span><h6>3BHK FLAT INTERIOR 
+        </h6>
+      </a>
+      <a href="project1.html">
+        <img src="Project6-THUMB.png" alt="Project 5">
+        <span>MR. VAIBHAV C</span><h6>4900 SQFT BUNGALOW PROJECT</h6>
+      </a>
+    </div>
+  </section>
+
+  <section class="icons">
+    <h2 style="text-align: center;">Design Process</h2><br><br>
+    <div class="icons-container">
+      <div class="icon">
+        <i class="material-icons">groups</i>
+        <h6>Requirement Meeting</h6>
+      </div>
+      <div class="icon">
+        <i class="material-icons">lightbulb</i>
+        <h6>Idea Presentation</h6>
+      </div>
+      <div class="icon">
+        <i class="material-icons">attach_money</i>
+        <h6>Budget Estimation</h6>
+      </div>
+      <div class="icon">
+        <i class="material-icons">done</i>
+        <h6>Agreement Closure</h6>
+      </div>
+      <div class="icon">
+        <i class="material-icons">engineering</i>
+        <h6>Vendor Allocation</h6>
+      </div>
+      <div class="icon">
+        <i class="material-icons">check_circle</i>
+        <h6>Quality Execution</h6>
+      </div>
+      <div class="icon">
+        <i class="material-icons">key</i>
+        <h6>Handover</h6>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Testimonials</h2><br>
+    <div class="testimonial-container">
+      <div class="testimonial-card">
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec magna vel risus sagittis pretium in vitae diam."</p>
+        <p>- Eminem</p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Sed sagittis tortor vitae ex sollicitudin rhoncus. Sed luctus ultricies velit, eu luctus eros tempus vel."</p>
+        <p>- MC Stan</p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Nullam bibendum, lectus at fringilla rhoncus, nibh enim pellentesque lorem, quis congue libero mi sed magna."</p>
+        <p>- Slim Shady</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2><br>
+    <ul class="mdc-list">
+      <li class="mdc-list-item"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">location_on</i>UNIKALA architecture studio</li>
+      <li class="mdc-list-item"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">phone</i>  +91-9011179285</li>
+      <li class="mdc-list-item"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">email</i>  unikala@gmail.com</li>
+    </ul>
+  </section>
+  
+  <a href="https://api.whatsapp.com/send?phone=9011179285&amp;text=Hello,%20I'm%20looking%20for%20a%20quotation.%20Could%20you%20share%20your%20details%20so%20that%20I%20may%20contact%20you%3F%20Thank%20you!" class="whatsapp-button" target="_blank">
+    <img src="whatsapp-icon.png" width="40%" height="40%">
+</a>
+<div class="help-prompt"><b>Need Help? Chat with us</b></div>
+
+  <footer>
+    <p>© 2023 UNIKALA</p>
+  </footer>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
